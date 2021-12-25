@@ -10,7 +10,9 @@ You can run the source code for each day using
 cargo run < input
 ```
 
-## Supported problem 
+You can replace `input` with any problem input. There may be some `example` files in some problem folders.
+
+## Supported problems
 | **Filename** | Started            | Finished           | Working (execution) |
 |--------------|--------------------|--------------------|---------------------|
 | `aoc_01_1`   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  |
