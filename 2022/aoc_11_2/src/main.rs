@@ -64,7 +64,7 @@ fn main() {
         .fold(1, |acc, x| acc * x / gcd(acc, x));
 
     let mut insp = (0..10000).fold(vec![0; monkeys.len()], |acc, _| {
-        let ret: Vec<_> = (0..monkeys.len())
+        (0..monkeys.len())
             .map(|i| {
                 let (items, op, test) = monkeys[i].clone();
                 let n = items.len();
@@ -92,8 +92,7 @@ fn main() {
             })
             .zip(acc.iter())
             .map(|(a, b)| a + b)
-            .collect();
-        ret
+            .collect()
     });
 
     insp.sort();
