@@ -1,12 +1,9 @@
-let file = Sys.argv.(1)
-
-let read_lines file =
-  let ic = open_in file in
+let read_lines =
   let try_read () =
-    try Some (input_line ic) with End_of_file -> None in
+    try Some (input_line stdin) with End_of_file -> None in
   let rec loop acc = match try_read () with
   | Some s -> loop (s :: acc)
-  | None -> close_in ic; List.rev acc in
+  | None -> List.rev acc in
   loop []
 
 let nums = [| "one"; "two"; "three"; "four"; "five"; "six"; "seven"; "eight"; "nine";
@@ -30,7 +27,7 @@ let find_num l nc = List.fold_left (fun a c ->
       | Some (_, n) -> (Some n, a)) (None, Array.copy nc) l |> fst |> Option.get 
 
 let () =
-  let lines = read_lines file in
+  let lines = read_lines in
   let ret = List.fold_left (fun acc line ->
     let l = List.of_seq (String.to_seq line) in 
     let fd = find_num l nums_c in
