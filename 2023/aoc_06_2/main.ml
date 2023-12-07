@@ -23,7 +23,7 @@ let parse s =
 
 let convert_l_n l =
   List.fold_left (fun acc n -> 
-    acc * (Int.of_float (Float.pow 10. (1.+.(Float.floor (Float.log10 (Float.of_int n)))))) + n) 0 l
+    acc * (Int.of_float (10. ** (1.+.(Float.floor (Float.log10 (Float.of_int n)))))) + n) 0 l
 
 let () =
   let lines = read_lines in
