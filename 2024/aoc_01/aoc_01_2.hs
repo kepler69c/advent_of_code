@@ -1,6 +1,4 @@
-import System.Directory.Internal.Prelude (getArgs)
-import Data.List (sort)
-import Data.Map (Map)
+import System.Environment (getArgs)
 import qualified Data.Map as M
 
 parse :: FilePath -> IO ([Int], [Int])
