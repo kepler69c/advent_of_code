@@ -14,13 +14,11 @@ f' ll =
       ll2' = map (all ((\x -> x >= 1 && x <= 3) . abs)) ll' in
   zipWith (&&) ll1' ll2'
 
-g (x : l) m = (m ++ l) : g l (m ++ [x])
-g [] m = []
-
-g' l = g l []
+g m (x : l) = (m ++ l) : g (m ++ [x]) l
+g _ [] = []
 
 f ll =
-  let ll' = map (f' . g') ll in
+  let ll' = map (f' . g []) ll in
   length (filter id (map or ll'))
 
 main = do
