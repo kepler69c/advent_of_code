@@ -6,28 +6,24 @@ parse path = do
         ll = map (map read . words) l
     return ll
 
-f'' l =
-  let a:l' = l
-      l'' = snd $ foldl (\(a, l) b -> (b, (a - b):l)) (a, []) l' in
-  l''
+f'' (a : l) = snd $ foldl (\(a, l) b -> (b, (a - b) : l)) (a, []) l
 
 f' ll =
   let ll' = map f'' ll
-      ll'' = map (\l -> all (> 0) l || all (< 0) l) ll'
-      ll''' = map (all ((\x -> x >= 1 && x <= 3) . abs)) ll' in
-  zipWith (&&) ll'' ll'''
+      ll1' = map (\l -> all (> 0) l || all (< 0) l) ll'
+      ll2' = map (all ((\x -> x >= 1 && x <= 3) . abs)) ll' in
+  zipWith (&&) ll1' ll2'
 
-g (x:l) m = (m ++ l) : g l (m++[x])
+g (x : l) m = (m ++ l) : g l (m ++ [x])
 g [] m = []
 
 g' l = g l []
 
 f ll =
-  let lll = map g' ll
-      ll' = map f' lll in
+  let ll' = map (f' . g') ll in
   length (filter id (map or ll'))
 
 main = do
-  (a:_) <- getArgs
+  (a : _) <- getArgs
   l <- parse a
   print (f l)
