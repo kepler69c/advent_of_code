@@ -2,11 +2,11 @@ import System.Environment (getArgs)
 import qualified Data.Map as M
 
 parse path = do
-    c <- readFile path
-    let l = lines c
-        ll = map (map read . words) l
-        (l1, l2) = unzip $ map (\(x : y : _) -> (x, y)) ll
-    return (l1, l2)
+  c <- readFile path
+  let l = lines c
+      ll = map (map read . words) l
+      (l1, l2) = unzip $ map (\(x : y : _) -> (x, y)) ll
+  return (l1, l2)
 
 f (l1, l2) =
   let m = foldl (\m e ->

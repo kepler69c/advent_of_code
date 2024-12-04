@@ -1,12 +1,12 @@
 import System.Environment (getArgs)
 
 parse path = do
-    c <- readFile path
-    let l = lines c
-        ll = map (map read . words) l
-    return ll
+  c <- readFile path
+  let l = lines c
+      ll = map (map read . words) l
+  return ll
 
-f'' (a : l) = snd $ foldl (\(a, l) b -> (b, (a - b) : l)) (a, []) l
+f'' (a : l) = zipWith (-) (a : l) l
 
 f' ll =
   let ll' = map f'' ll
@@ -19,7 +19,7 @@ g _ [] = []
 
 f ll =
   let ll' = map (f' . g []) ll in
-  length (filter id (map or ll'))
+  length $ filter id $ map or ll'
 
 main = do
   (a : _) <- getArgs
