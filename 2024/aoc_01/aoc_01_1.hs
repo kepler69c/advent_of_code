@@ -1,4 +1,4 @@
-import System.Directory.Internal.Prelude (getArgs)
+import System.Environment (getArgs)
 import Data.List (sort)
 
 parse path = do

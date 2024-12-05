@@ -1,0 +1,12 @@
+name: aoc02
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_02_1
+  main-is: aoc_02_1.hs
+  build-depends: base
+
+executable aoc_02_2
+  main-is: aoc_02_2.hs
+  build-depends: base

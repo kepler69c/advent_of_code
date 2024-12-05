@@ -1,8 +1,3 @@
-#!/usr/bin/env cabal
-{- cabal:
- build-depends: base, regex-tdfa
--}
-
 import System.Environment (getArgs)
 import Text.Regex.TDFA
 

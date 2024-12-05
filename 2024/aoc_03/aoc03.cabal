@@ -1,0 +1,12 @@
+name: aoc03
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_03_1
+  main-is: aoc_03_1.hs
+  build-depends: base, regex-tdfa
+
+executable aoc_03_2
+  main-is: aoc_03_2.hs
+  build-depends: base, regex-tdfa
