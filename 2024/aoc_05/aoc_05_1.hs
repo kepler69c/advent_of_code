@@ -11,13 +11,13 @@ parse path = do
   return (la', lb')
 
 validEntry m l =
-  validEntry' m (reverse l)
+  validEntry' (reverse l)
   where
-  validEntry' _ [] = True
-  validEntry' m (a : l) =
+  validEntry' [] = True
+  validEntry' (a : l) =
     (case m M.!? a of
      Just ml -> all (`notElem` ml) l
-     Nothing -> True) && validEntry' m l
+     Nothing -> True) && validEntry' l
 
 f (la, lb) =
   let lb' = filter (validEntry la) lb in

@@ -13,16 +13,16 @@ isXmas [l1, l2, l3] =
   (['S',  _ , 'S'], [ _ , 'A',  _ ], ['M',  _ , 'M']) -> True
   _ -> False
 
-matrixWindow n ll =
+matrixWindows n ll =
   if length ll < n then []
-  else matrixWindowRow (take n ll) ++ matrixWindow n (drop 1 ll)
+  else matrixWindowsRow (take n ll) ++ matrixWindows n (drop 1 ll)
   where
-  matrixWindowRow (h : l) =
+  matrixWindowsRow (h : l) =
     if length h < n then []
-    else map (take n) (h : l) : matrixWindowRow (map (drop 1) (h : l))
+    else map (take n) (h : l) : matrixWindowsRow (map (drop 1) (h : l))
 
 f l =
-  let windows = matrixWindow 3 l in
+  let windows = matrixWindows 3 l in
   length $ filter id (map isXmas windows)
 
 main = do
