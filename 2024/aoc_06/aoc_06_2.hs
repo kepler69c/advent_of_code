@@ -3,7 +3,6 @@ import Data.Array.IArray
 import Data.Foldable (find)
 import Data.List.Extra (firstJust)
 import Data.Maybe (fromJust, mapMaybe)
-import Debug.Trace (trace)
 
 parse :: FilePath -> IO (Array (Int, Int) Char)
 parse path = do
@@ -73,7 +72,6 @@ stepGuy a y x d =
       else End
 
 g a y x d =
-  --trace (show (y, x)) $
   case stepGuy a y x d of
   Continue (a, y', x', d') -> g a y' x' d'
   e -> e

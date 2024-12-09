@@ -3,7 +3,6 @@ import Data.Array.IArray
 import Data.Foldable (find)
 import Data.List.Extra (firstJust)
 import Data.Maybe (fromJust)
-import Debug.Trace (trace)
 
 parse :: FilePath -> IO (Array (Int, Int) Char)
 parse path = do
