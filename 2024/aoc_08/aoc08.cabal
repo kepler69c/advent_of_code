@@ -1,0 +1,12 @@
+name: aoc08
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_08_1
+  main-is: aoc_08_1.hs
+  build-depends: base, array >= 0.5.8.0, containers
+
+executable aoc_08_2
+  main-is: aoc_08_2.hs
+  build-depends: base, array >= 0.5.8.0, containers
