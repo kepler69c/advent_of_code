@@ -1,0 +1,12 @@
+name: aoc06
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_06_1
+  main-is: aoc_06_1.hs
+  build-depends: base, array, extra
+
+executable aoc_06_2
+  main-is: aoc_06_2.hs
+  build-depends: base, array, extra
