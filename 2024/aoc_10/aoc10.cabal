@@ -1,0 +1,12 @@
+name: aoc10
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_10_1
+  main-is: aoc_10_1.hs
+  build-depends: base, array, containers
+
+executable aoc_10_2
+  main-is: aoc_10_2.hs
+  build-depends: base, array, containers
