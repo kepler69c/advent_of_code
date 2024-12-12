@@ -17,7 +17,7 @@ parse path = do
 antennas :: Array (Int, Int) Char -> Map Char [(Int, Int)]
 antennas a = Map.delete '.' $ foldr (\i m -> Map.insertWith (++) (a ! i) [i] m) Map.empty (indices a)
 
-inBounds a (x, y) =
+inBounds a (y, x) =
   let ((ly, lx), (uy, ux)) = bounds a in
   (y >= ly) && (y <= uy) && (x >= lx) && (x <= ux)
 
