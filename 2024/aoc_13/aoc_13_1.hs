@@ -1,7 +1,7 @@
 import System.Environment (getArgs)
 import Data.List.Split
 
-parse :: FilePath -> IO [((Float, Float), (Float, Float), (Float, Float))]
+parse :: FilePath -> IO [((Double, Double), (Double, Double), (Double, Double))]
 parse path = do
   c <- readFile path
   let l = lines c
@@ -35,9 +35,9 @@ solve [[m11, m12], [m21, m22]] [p1, p2] =
 conv x =
   let n = round x
       f = x - fromIntegral n in
-  if abs f < 1e-4 then Just n else Nothing
+  if abs f < 0.01 then Just n else Nothing
 
-f :: [((Float, Float), (Float, Float), (Float, Float))] -> Int
+f :: [((Double, Double), (Double, Double), (Double, Double))] -> Int
 f = sum . map (\((ax, ay), (bx, by), (px, py)) ->
             let [a, b] = solve [[ax, bx], [ay, by]] [px, py] in
             case (conv a, conv b) of
