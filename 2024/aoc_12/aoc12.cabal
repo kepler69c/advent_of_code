@@ -5,8 +5,8 @@ cabal-version: >= 1.2
 
 executable aoc_12_1
   main-is: aoc_12_1.hs
-  build-depends: base, array, containers
+  build-depends: base, array
 
 executable aoc_12_2
   main-is: aoc_12_2.hs
-  build-depends: base
+  build-depends: base, array

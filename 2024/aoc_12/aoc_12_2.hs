@@ -34,7 +34,6 @@ collectFields a =
   let ba = amap (True,) a in
   collectF ba
   where
-  collectF :: Array (Int, Int) (Bool, Char) -> [([(Int, Int)], Char)]
   collectF ba =
     case find (fst . snd) (assocs ba) of
     Just (p, (_, c)) ->
@@ -114,10 +113,10 @@ cornersF = [
 computeAP a (ps, c) =
   let area = length ps
       sides = sum $
-              map ((\l -> sum $ map (\f -> f l) cornersF) .
-                    (\(y, x) -> map (\(oy, ox) ->
-                      let i' = (oy + y, ox + x) in
-                      (inBounds a i' && (a ! i') == c)) neighbors8)) ps in
+              map ((\l -> sum $ map ($ l) cornersF) .
+                   (\(y, x) -> map (\(oy, ox) ->
+                     let i' = (oy + y, ox + x) in
+                     (inBounds a i' && (a ! i') == c)) neighbors8)) ps in
       (area, sides)
 
 f a =
