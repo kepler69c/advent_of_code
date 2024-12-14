@@ -20,14 +20,14 @@ inBounds ((dxl, dyl), (dxu, dyu)) (x, y) =
   x >= dxl && x <= dxu && y >= dyl && y <= dyu
 
 display a (dx, dy) = do
-  let arr = listArray ((1, 1), (dx, dy)) (repeat ' ') :: Array (Int, Int) Char
-      arr' = arr // map ((, '#') . (\(x, y) -> (x + 1, y + 1)) . fst) a
-      l = intercalate "\n" $ transpose $ chunksOf (dx + 2) (elems arr')
+  let arr = listArray ((1, 1), (dy, dx)) (repeat ' ') :: Array (Int, Int) Char
+      arr' = arr // map ((, '#') . (\(x, y) -> (y + 1, x + 1)) . fst) a
+      l = intercalate "\n" $ chunksOf dx (elems arr')
   putStrLn l
 
 f a = do
   let (dx, dy) = (101, 103)
-      a' = iterate (step (dx, dy)) a !! 7037
+      a' = iterate (step (dx, dy)) a !! 7037 -- found by hand
   print 7037
   display a' (dx, dy)
 
