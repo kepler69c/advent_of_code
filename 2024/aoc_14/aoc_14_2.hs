@@ -3,7 +3,7 @@
 import System.Environment (getArgs)
 import Data.List.Split
 import Data.Array.IArray
-import Data.List (intercalate, transpose)
+import Data.List (intercalate)
 
 parse path = do
   c <- readFile path
@@ -27,8 +27,9 @@ display a (dx, dy) = do
 
 f a = do
   let (dx, dy) = (101, 103)
-      a' = iterate (step (dx, dy)) a !! 7037 -- found by hand
-  print 7037
+      i = 7037 -- found by hand
+      a' = iterate (step (dx, dy)) a !! i
+  print i
   display a' (dx, dy)
 
 main = do
