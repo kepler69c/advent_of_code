@@ -32,17 +32,16 @@ solve [[m11, m12], [m21, m22]] [p1, p2] =
       [m21_4, m22_4, p2_4] = vec3_mul (1/m22_1) [m21_1, m22_1, p2_1] in
   [p1_3, p2_4]
 
-conv x =
-  let n = round x
-      f = x - fromIntegral n in
-  if abs f < 0.01 then Just n else Nothing
+check l =
+  let [a, b, ax, ay, bx, by, px, py] = map round l in
+  (a * ax + b * bx, a * ay + b * by) == (px, py)
 
 f :: [((Double, Double), (Double, Double), (Double, Double))] -> Int
 f = sum . map (\((ax, ay), (bx, by), (px, py)) ->
             let [a, b] = solve [[ax, bx], [ay, by]] [px, py] in
-            case (conv a, conv b) of
-            (Just a, Just b) -> 3 * a + b
-            _ -> 0)
+            if check [a, b, ax, ay, bx, by, px, py] then
+              3 * round a + round b
+            else 0)
 
 main = do
   (a : _) <- getArgs
