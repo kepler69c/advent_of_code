@@ -1,6 +1,5 @@
 import System.Environment (getArgs)
 import Data.List.Split
-import Debug.Trace (trace)
 
 parse :: FilePath -> IO [((Int, Int), (Int, Int))]
 parse path = do
@@ -12,7 +11,7 @@ parse path = do
 
 step (dx, dy) =
   map (\((x, y), (vx, vy)) ->
-    (((x + vx) `mod`dx, (y + vy) `mod` dy), (vx, vy)))
+    (((x + vx) `mod` dx, (y + vy) `mod` dy), (vx, vy)))
 
 inBounds ((dxl, dyl), (dxu, dyu)) (x, y) =
   x >= dxl && x <= dxu && y >= dyl && y <= dyu
