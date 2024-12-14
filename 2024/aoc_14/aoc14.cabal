@@ -1,0 +1,12 @@
+name: aoc14
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_14_1
+  main-is: aoc_14_1.hs
+  build-depends: base, split
+
+executable aoc_14_2
+  main-is: aoc_14_2.hs
+  build-depends: base, split, array
