@@ -1,0 +1,12 @@
+name: aoc15
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_15_1
+  main-is: aoc_15_1.hs
+  build-depends: base, array, split, monad-loops
+
+executable aoc_15_2
+  main-is: aoc_15_2.hs
+  build-depends: base
