@@ -9,4 +9,4 @@ executable aoc_15_1
 
 executable aoc_15_2
   main-is: aoc_15_2.hs
-  build-depends: base
+  build-depends: base, array, split
