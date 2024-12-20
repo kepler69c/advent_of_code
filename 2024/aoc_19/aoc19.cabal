@@ -1,0 +1,12 @@
+name: aoc19
+version: 0.1.0.0
+build-type: Simple
+cabal-version: >= 1.2
+
+executable aoc_19_1
+  main-is: aoc_19_1.hs
+  build-depends: base, split, containers
+
+executable aoc_19_2
+  main-is: aoc_19_2.hs
+  build-depends: base, split, containers
