@@ -10,7 +10,6 @@ parse path = do
 
 intcat a b = read $ show a ++ show b
 
-treeSearch :: Int -> [Int] -> Bool
 treeSearch obj [a] = obj == a
 treeSearch obj (a : b : l) =
   treeSearch obj ((a + b) : l) || treeSearch obj ((a * b) : l) || treeSearch obj ((a `intcat` b) : l)
